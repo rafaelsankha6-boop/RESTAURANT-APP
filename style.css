@@ -1,60 +1,97 @@
-
 /* ================= GLOBAL SAFETY ================= */
 *{
-  box-sizing:border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* ================= FIX BODY OVERFLOW + SPACING ================= */
+/* ================= BODY ================= */
 body{
-  overflow-x:hidden;
-  padding-top:110px; /* IMPORTANT: prevents header overlap */
+  overflow-x: hidden;
+  padding-top: 110px; /* prevents header overlap */
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  scroll-behavior: smooth;
 }
 
-/* ================= FIX NAV SPACING ================= */
+/* ================= NAV FIX ================= */
 nav{
-  margin-top:10px;
+  margin-top: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-/* ================= FIX MENU GRID (GITHUB SAFE) ================= */
+/* ================= MENU GRID (GITHUB SAFE) ================= */
 #menu{
-  width:100%;
-  overflow-x:hidden;
-  padding:10px;
+  width: 100%;
+  overflow-x: hidden;
+  padding: 15px;
 
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
-  gap:15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 18px;
+
+  align-items: stretch;
 }
 
-/* ================= FIX CARD SIZE ================= */
+/* ================= CARD DESIGN ================= */
 .card{
-  width:100%;
-  max-width:220px;
-  margin:auto;
-  border-radius:10px;
+  width: 100%;
+  max-width: 230px;
+  margin: auto;
+
+  border-radius: 12px;
+  background: #fff;
+
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
 }
 
-/* ================= FIX IMAGE ISSUE ================= */
-.card img{
-  width:100%;
-  height:120px;
-  object-fit:cover;
-  display:block;
-}
-
-/* ================= PRO HOVER STABILITY ================= */
+/* ================= CARD HOVER ================= */
 .card:hover{
-  transform:translateY(-6px) scale(1.03);
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-/* ================= BUTTON ALIGNMENT FIX ================= */
+/* ================= IMAGE FIX ================= */
+.card img{
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* image zoom on hover */
+.card:hover img{
+  transform: scale(1.05);
+}
+
+/* ================= BUTTON ================= */
 button{
-  cursor:pointer;
+  cursor: pointer;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: 0.2s ease;
+}
+
+button:hover{
+  opacity: 0.85;
+  transform: scale(1.03);
 }
 
 /* ================= MOBILE FIX ================= */
-@media(max-width:600px){
+@media(max-width: 600px){
   #menu{
-    grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+
+  .card{
+    max-width: 100%;
   }
 }
